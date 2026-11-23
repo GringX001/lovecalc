@@ -20,7 +20,7 @@ Em seguida, realiza somas entre os dígitos das extremidades até obter um núme
 3. Execute o programa:
 
 ```bash
-python main.py
+python LoveCalc.py
 ```
 
 ## Objetivo
