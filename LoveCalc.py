@@ -1,4 +1,4 @@
-import os, subprocess
+import os, subprocess, sys
 
 def somarNumero(numero: int):
     numero = list(str(numero))
@@ -22,19 +22,27 @@ def somarNumero(numero: int):
     return int(number)
 
 def finish_game():
-    response = input("Testar outros nomes? Y/n - ")
+    while True:
+        response = input("Testar outros nomes? Y/n - ").lower().strip()
 
-    if not response or response == "y" or response == "Y":
-        main_game()
+        if not response or response == "y":
+            main_game()
+        elif response == "n":
+            sys.exit()
 
 def main_game():
     subprocess.run("cls" if os.name == "nt" else "clear", shell=True)
-
     print("Love Calc ❤️\n")
-    nomeA = input("Digite um nome: ").lower()
-    nomeB = input("Digite outro nome: ").lower()
-    nomes = list(nomeA + nomeB)
 
+    nomeA = None
+    while not nomeA or not nomeA.isalpha():
+        nomeA = input("Digite um nome: ").strip()
+
+    nomeB = None
+    while not nomeB or not nomeA.isalpha():
+        nomeB = input("Digite outro nome: ").strip()
+
+    nomes = list(nomeA.lower() + nomeB.lower())
     number = ""
 
     for i in range(len(nomes)):
