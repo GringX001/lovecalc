@@ -15,9 +15,7 @@ def somarNumero(numero: int):
             calculando = False
             break
 
-        number += str(int(numero[0]) + int(numero[-1]))
-        numero.pop(0)
-        numero.pop()
+        number += str(int(numero.pop(0)) + int(numero.pop()))
 
     return int(number)
 
